@@ -7,12 +7,39 @@ public class InPlaceSorts
 
     public static void selectionSort(double[] list1)
     {
-
+        int minPos;
+        for (int curPos = 0; curPos < list1.length - 1; curPos++)
+        {
+            double minVal = list1[curPos];
+            minPos = curPos;
+            for (int i = curPos; i < list1.length; i++)
+            {
+                if (list1[i] < minVal)
+                {
+                    minVal = list1[i];
+                    minPos = i;
+                }
+            }
+            Swap(list1, curPos, minPos);
+        }
     }
 
     public static void bubbleSort(String[] list1)
     {
-
+        int swapNum = -1;
+        while (swapNum != 0)
+        {
+            swapNum = 0;
+            for (int i = 0; i < list1.length - 1; i++)
+            {
+                int j = i + 1;
+                if (list1[i].compareToIgnoreCase(list1[j]) > 0)
+                {
+                    Swap(list1, i , j);
+                    swapNum++;
+                }
+            }
+        }
     }
 
     public static void Swap(int[] array, int x, int y)
@@ -34,7 +61,7 @@ public class InPlaceSorts
         array[y] = temp;
     }
 
-    public static int[] randIntArr(int length)
+    public int[] randIntArr(int length)
     {
         int[] array = new int[length];
         for (int i = 0; i < array.length; i++)
@@ -43,7 +70,7 @@ public class InPlaceSorts
         }
         return array;
     }
-    public static double[] randDoubleArr(int length)
+    public double[] randDoubleArr(int length)
     {
         double[] array = new double[length];
         for (int i = 0; i < array.length; i++)
@@ -51,5 +78,23 @@ public class InPlaceSorts
             array[i] = Math.random() * 10001;
         }
         return array;
+    }
+    public String[] randStringArr(int num, int length)
+    {
+        String[] arr = new String[num];
+        while (num > 0)
+        {
+            int i = 0;
+            String s = "";
+            while (i < length)
+            {
+                char c = (char)((Math.random()*26) + 97);
+                s = s + c;
+                i++;
+            }
+            num--;
+            arr[num] = s;
+        }
+        return arr;
     }
 }
