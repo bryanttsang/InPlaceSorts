@@ -2,7 +2,16 @@ public class InPlaceSorts
 {
     public static void insertionSort(int[] list1)
     {
-
+        for (int i = 1; i < list1.length; i++)
+        {
+            for (int ii = i; ii > 0; ii--)
+            {
+                if (list1[ii] > list1[ii - 1])
+                {
+                    Swap(list1, ii, ii - 1);
+                }
+            }
+        }
     }
 
     public static void selectionSort(double[] list1)
@@ -61,7 +70,7 @@ public class InPlaceSorts
         array[y] = temp;
     }
 
-    public int[] randIntArr(int length)
+    public static int[] randIntArr(int length)
     {
         int[] array = new int[length];
         for (int i = 0; i < array.length; i++)
@@ -96,5 +105,33 @@ public class InPlaceSorts
             arr[num] = s;
         }
         return arr;
+    }
+
+    public static int[] copyIntArray(int[] array)
+    {
+        int[] copy = new int[array.length];
+        for (int i = 0; i < array.length; i++)
+        {
+            copy[i] = array[i];
+        }
+        return copy;
+    }
+    public static double[] copyDoubleArray(double[] array)
+    {
+        double[] copy = new double[array.length];
+        for (int i = 0; i < array.length; i++)
+        {
+            copy[i] = array[i];
+        }
+        return copy;
+    }
+    public static String[] copyStringArray(String[] array)
+    {
+        String[] copy = new String[array.length];
+        for (int i = 0; i < array.length; i++)
+        {
+            copy[i] = array[i];
+        }
+        return copy;
     }
 }
