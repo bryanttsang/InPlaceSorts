@@ -6,9 +6,13 @@ public class InPlaceSorts
         {
             for (int ii = i; ii > 0; ii--)
             {
-                if (list1[ii] > list1[ii - 1])
+                if (list1[ii] < list1[ii - 1])
                 {
                     Swap(list1, ii, ii - 1);
+                }
+                else
+                {
+                    break;
                 }
             }
         }
@@ -133,5 +137,97 @@ public class InPlaceSorts
             copy[i] = array[i];
         }
         return copy;
+    }
+
+    public static boolean isSorted(int[] array)
+    {
+        for (int i = 0; i < array.length - 1; i++)
+        {
+            if (array[i] > array[i + 1])
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+    public static boolean isSorted(double[] array)
+    {
+        for (int i = 0; i < array.length - 1; i++)
+        {
+            if (array[i] > array[i + 1])
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+    public static boolean isSorted(String[] array)
+    {
+        for (int i = 0; i < array.length - 1; i++)
+        {
+            if (array[i].compareToIgnoreCase(array[i + 1]) > 0)
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public static boolean checkSum(int[] array, int[] copy)
+    {
+        if (array.length != copy.length)
+        {
+            return false;
+        }
+        int arraySum = 0;
+        int copySum = 0;
+        for (int i = 0; i < array.length; i++)
+        {
+            arraySum += array[i];
+            copySum += copy[i];
+        }
+        if (arraySum == copySum)
+        {
+            return true;
+        }
+        return false;
+    }
+    public static boolean checkSum(double[] array, double[] copy)
+    {
+        if (array.length != copy.length)
+        {
+            return false;
+        }
+        double arraySum = 0;
+        double copySum = 0;
+        for (int i = 0; i < array.length; i++)
+        {
+            arraySum += array[i];
+            copySum += copy[i];
+        }
+        if (arraySum == copySum)
+        {
+            return true;
+        }
+        return false;
+    }
+    public static boolean checkSum(String[] array, String[] copy)
+    {
+        if (array.length != copy.length)
+        {
+            return false;
+        }
+        String arraySum = "";
+        String copySum = "";
+        for (int i = 0; i < array.length; i++)
+        {
+            arraySum = arraySum + array[i];
+            copySum = copySum + array[i];
+        }
+        if (arraySum.equals(copySum))
+        {
+            return true;
+        }
+        return false;
     }
 }

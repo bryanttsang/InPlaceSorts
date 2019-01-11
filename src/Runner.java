@@ -2,7 +2,7 @@ public class Runner
 {
     public static void main(String args[])
     {
-        int[] array = InPlaceSorts.randIntArr(9);
+        int[] array = InPlaceSorts.randIntArr(9999);
         int[] copy = InPlaceSorts.copyIntArray(array);
 
         //print initial array
@@ -23,7 +23,9 @@ public class Runner
         System.out.println();
 
         //check and print
-        System.out.println("Selection Sort");
+        System.out.println("Insertion Sort");
+        System.out.println("isSorted: " + InPlaceSorts.isSorted(copy));
+        System.out.println("checkSum: " + InPlaceSorts.checkSum(array, copy));
         System.out.println("Time taken: " + time + " nanoseconds");
     }
 }
