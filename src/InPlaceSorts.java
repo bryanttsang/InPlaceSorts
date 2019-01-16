@@ -18,7 +18,7 @@ public class InPlaceSorts
         }
     }
 
-    public static void selectionSort(double[] list1)
+    public static void selectionSort(int[] list1)
     {
         int minPos;
         for (int curPos = 0; curPos < list1.length - 1; curPos++)
@@ -83,7 +83,7 @@ public class InPlaceSorts
         }
         return array;
     }
-    public double[] randDoubleArr(int length)
+    public static double[] randDoubleArr(int length)
     {
         double[] array = new double[length];
         for (int i = 0; i < array.length; i++)
@@ -211,6 +211,26 @@ public class InPlaceSorts
         }
         return false;
     }
+    public static boolean checkSum(int[] array, double[] copy)
+    {
+        if (array.length != copy.length)
+        {
+            return false;
+        }
+        int arraySum = 0;
+        int copySum = 0;
+        for (int i = 0; i < array.length; i++)
+        {
+            arraySum += array[i];
+            copySum += copy[i];
+        }
+        if (arraySum == copySum)
+        {
+            return true;
+        }
+        return false;
+    }
+
     public static boolean checkSum(String[] array, String[] copy)
     {
         if (array.length != copy.length)
